@@ -1,0 +1,14 @@
+#! /bin/bash
+
+if [ $# -eq 0 ]; then
+	echo "No file argument!"
+	exit 1
+elif ! [ -e $1 ]; then
+	echo "No file exists!"
+	exit 2
+elif ! [ -f $1 ]; then
+	echo "File is not readable!"
+	exit 3
+fi
+
+watch -n 60 "cat ${1}"
